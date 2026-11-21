@@ -9,7 +9,7 @@ The system also includes authentication, activity logging, and file-based data s
 
 ### Authentication System
 - Admin login with username and password
-- Password hashing for security
+- Passwords stored as djb2 hashes (a simple teaching hash, not secure for real credentials)
 - Automatic admin account initialization
 
 ### Service Request Management
@@ -52,7 +52,24 @@ All system operations are logged including:
 | egov_users.dat | User authentication data |
 | egov_logs.txt | System activity logs |
 
+## Build and Run
+
+Needs a C compiler (gcc or clang).
+
+```bash
+gcc egovernance_system.c -o egovernance_system -lm
+./egovernance_system
+```
+
+On macOS, `-lm` is optional. The program creates its `.dat` data files and log file on first run.
+
+## Project Report
+
+Design and feature walkthrough: [docs/EGSMS-project-report.pdf](docs/EGSMS-project-report.pdf)
+
 ## Default Admin Login
+
+Created automatically on first run.
 
 Username: admin  
 Password: admin123
